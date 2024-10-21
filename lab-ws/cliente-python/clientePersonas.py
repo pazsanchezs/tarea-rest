@@ -96,6 +96,7 @@ print("Primer listado de personas:")
 listar()
 print("________________")
 
+#Crear persona
 print("Crear nueva persona:")
 cedula = int(input("Ingrese cedula: "))
 nombre = input("Ingrese nombre: ")
