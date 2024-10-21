@@ -15,5 +15,5 @@ public interface PersonaRepository extends CrudRepository<Persona, Integer> {
 
     List<Persona> findByApellido(String apellido);
 
-    Persona findByCedula(long id);
+    Persona findByCedula(Integer cedula);
 }

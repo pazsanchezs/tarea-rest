@@ -1,0 +1,5 @@
+py\una\pol\sd\repository\PersonaRepository.class
+py\una\pol\sd\model\Persona.class
+py\una\pol\sd\controller\PersonaController.class
+py\una\pol\sd\service\PersonaService.class
+py\una\pol\sd\SdApplication.class
