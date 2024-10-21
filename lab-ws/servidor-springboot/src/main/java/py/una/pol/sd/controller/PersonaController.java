@@ -24,7 +24,7 @@ public class PersonaController {
 
     @GetMapping(value = "/listar", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity<List<Persona>> getPersonas() {
-        List<Persona> r = personaService.findAll(); // Cambiado de getPersonas() a findAll()
+        List<Persona> r = personaService.findAll(); 
         return new ResponseEntity<>(r, HttpStatus.OK);
     }
 
@@ -32,7 +32,7 @@ public class PersonaController {
     public ResponseEntity<String> create(@RequestBody Persona per) {
         if (per != null && per.getCedula() != null) {
             System.out.println("Persona recepcionada " + per.getNombre());
-            personaService.save(per); // Cambiado de crear() a save()
+            personaService.save(per);
             return new ResponseEntity<>("Se recepcionó correctamente la persona: " + per.toString(), HttpStatus.OK);
         } else {
             System.out.println("Datos mal enviados por el cliente");
@@ -43,12 +43,14 @@ public class PersonaController {
     @PutMapping(value = "/actualizar/{cedula}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Persona> updatePersona(@PathVariable Integer cedula, @RequestBody Persona persona) {
         Persona updatedPersona = personaService.updateByCedula(cedula, persona);
+        System.out.println("Persona actualizada: " + updatedPersona.getNombre());
         return new ResponseEntity<>(updatedPersona, HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/borrar/{cedula}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> deletePersona(@PathVariable Integer cedula) {
         personaService.deleteByCedula(cedula);
+        System.out.println("Persona eliminada con cédula: " + cedula);
         return new ResponseEntity<>("Persona eliminada correctamente.", HttpStatus.OK);
     }
 }
