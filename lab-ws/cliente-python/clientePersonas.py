@@ -66,7 +66,7 @@ def actualizar(cedula: int, nombre: str, apellido: str):
     datos = {'nombre': nombre, 'apellido': apellido}
     url = api_personas_url_actualizar.format(cedula=cedula)
 
-    r = requests.put(url, headers=headers, json=datos)  # Cambia a PUT
+    r = requests.put(url, headers=headers, json=datos)
     if r.status_code >= 200 and r.status_code < 300:
         print("Persona actualizada:", r.json())
     else:
@@ -79,8 +79,8 @@ def borrar(cedula: int):
     headers["Content-Type"] = "application/json"
 
     url = api_personas_url_borrar.format(cedula=cedula)
-    r = requests.delete(url, headers=headers)  # Asegúrate de que la ruta sea correcta
-    if r.status_code == 200:  # Cambia a 200
+    r = requests.delete(url, headers=headers) 
+    if r.status_code == 200: 
         print("Persona borrada con éxito.")
     else:
         print("Error al borrar la persona " + str(r.status_code))

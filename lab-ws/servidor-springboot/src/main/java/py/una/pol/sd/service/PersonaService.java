@@ -40,7 +40,7 @@ public class PersonaService {
         if (!personaRepository.existsById(cedula)) {
             throw new EntityNotFoundException("Persona no encontrada con cédula: " + cedula);
         }
-        persona.setCedula(cedula);  // Asegúrate de que el objeto `persona` tenga la cédula correcta
+        persona.setCedula(cedula); 
         return personaRepository.save(persona);
     }
 }
